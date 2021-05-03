@@ -29,8 +29,8 @@ for p in p_list:
 # 3rd module
 
 # local module
-
+import RGB_to_Edge as rte
 
 
 if __name__ == '__main__':
-    print("hello world")
+    rte.run()

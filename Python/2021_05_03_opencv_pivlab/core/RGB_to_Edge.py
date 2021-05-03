@@ -39,7 +39,7 @@ import config as config
 
 
 def run():
-    # read_video(config.VIDEO_PATH)
+    read_video(config.VIDEO_PATH)
     edge()
 
 def read_video(imgname):
@@ -58,11 +58,12 @@ def edge():
     cap_2 = cv2.imread(path_input_data+"/origin_2.jpg",cv2.IMREAD_COLOR)
     cap_list = [cap_1,cap_2]
     counter = 0
+    v = 160
     for c in cap_list:
         counter += 1
         # _, frame = c.read()
         hsv = cv2.cvtColor(c, cv2.COLOR_BGR2HSV)
-        lower_white = np.array([0,0,160])
+        lower_white = np.array([0,0,v])
         upper_white = np.array([255,255,255])
         mask = cv2.inRange(hsv, lower_white, upper_white)
         # gray = cv2.cvtColor(c, cv2.COLOR_RGB2GRAY)
@@ -71,7 +72,7 @@ def edge():
         # blur_edges = cv2.Canny(blur_gray,20,30)
         # cv2.imshow('blur_Edges',blur_edges)
         # cv2.imwrite(path_output_data+"/blur_edges_%d.jpg"%(counter), blur_edges)
-        cv2.imwrite(path_output_data+"/160mask_%d.jpg"%(counter), mask)
+        cv2.imwrite(path_output_data+"/%dmask_%d.jpg"%( v, counter), mask)
 
 
     
