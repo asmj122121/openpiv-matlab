@@ -62,16 +62,16 @@ def edge():
         counter += 1
         # _, frame = c.read()
         hsv = cv2.cvtColor(c, cv2.COLOR_BGR2HSV)
-        lower_white = np.array([30,150,50])
-        upper_white = np.array([255,255,180])
+        lower_white = np.array([0,0,160])
+        upper_white = np.array([255,255,255])
         mask = cv2.inRange(hsv, lower_white, upper_white)
-        gray = cv2.cvtColor(c, cv2.COLOR_RGB2GRAY)
-        kernel_size = 3
-        blur_gray = cv2.GaussianBlur(gray,(kernel_size, kernel_size), 0)
-        blur_edges = cv2.Canny(blur_gray,20,30)
-        cv2.imshow('blur_Edges',blur_edges)
-        cv2.imwrite(path_output_data+"/blur_edges_%d.jpg"%(counter), blur_edges)
-        cv2.imwrite(path_output_data+"/mask_%d.jpg"%(counter), hsv)
+        # gray = cv2.cvtColor(c, cv2.COLOR_RGB2GRAY)
+        # kernel_size = 3
+        # blur_gray = cv2.GaussianBlur(gray,(kernel_size, kernel_size), 0)
+        # blur_edges = cv2.Canny(blur_gray,20,30)
+        # cv2.imshow('blur_Edges',blur_edges)
+        # cv2.imwrite(path_output_data+"/blur_edges_%d.jpg"%(counter), blur_edges)
+        cv2.imwrite(path_output_data+"/160mask_%d.jpg"%(counter), mask)
 
 
     
