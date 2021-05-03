@@ -30,7 +30,6 @@ for p in p_list:
 
 # local module
 
-# import config as config
 
 
 if __name__ == '__main__':
