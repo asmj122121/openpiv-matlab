@@ -4,8 +4,6 @@ u'''
         Date            : 2021/05/06
         Version         : 0.0.0.1
         Description     : Hsu_project
-
-        version         : 0.0.0.1
 '''
 
 # standard module
@@ -31,17 +29,18 @@ for p in p_list:
 
 # 3rd module
 import cv2
+import numpy as np
 
 # local module
 import config as config
 
-def read_video(imgname):
-    cap = cv2.VideoCapture(imgname)
+def read_video():
+    cap = cv2.VideoCapture(config.INPUT_VIDEO_PATH)
     counter = 0
     _, frame = cap.read()
     while(type(frame) is np.ndarray):
         counter += 1
-        print("%d"%(counter))
-        cv2.imwrite(path_input_data+"/origin_%d.jpg"%(counter), frame)
+        print("Output " + config.VTJ_JPG_PATH + "/origin_%d.jpg"%(counter))
+        cv2.imwrite(config.VTJ_JPG_PATH + "/origin_%d.jpg"%(counter), frame)
         _, frame = cap.read()
     cap.release()

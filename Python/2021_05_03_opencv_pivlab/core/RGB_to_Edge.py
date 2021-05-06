@@ -3,9 +3,7 @@ u'''
         Author          : 蔡易展
         Date            : 2021/04/12
         Version         : 0.0.0.1
-        Description     : web crawler
-
-        version         : 0.0.0.1
+        Description     : Hsu_project
 '''
 
 # standard module
@@ -35,7 +33,6 @@ import numpy as np
 
 # local module
 import config as config
-
 
 
 

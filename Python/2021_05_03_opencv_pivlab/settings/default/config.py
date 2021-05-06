@@ -3,9 +3,7 @@ u'''
         Author          : 蔡易展
         Date            : 2021/04/12
         Version         : 0.0.0.1
-        Description     : web crawler
-
-        version         : 0.0.0.1
+        Description     : Hsu_project
 '''
 
 # standard module
@@ -40,5 +38,6 @@ MAIN_UI_WIDTH  = 500
 MAIN_UI_HEIGHT = 160
 
 #_____RGB_to_Edge_____
-VIDEO_PATH = path_input_data+"/20210503_1.mp4"
-# VIDEO_PATH = path_input_data+"/20210504_1.mp4"
+INPUT_VIDEO_NAME = "/20210503_1.mp4"
+INPUT_VIDEO_PATH = path_input_data+INPUT_VIDEO_NAME
+VTJ_JPG_PATH = path_input_data

@@ -4,8 +4,6 @@ u'''
         Date            : 2021/05/06
         Version         : 0.0.0.1
         Description     : Hsu_project
-
-        version         : 0.0.0.1
 '''
 
 # standard module
@@ -33,7 +31,6 @@ import video_to_jpg as vtj
 import RGB_to_Edge as rte
 import config
 
-
 if __name__ == '__main__':
-    vtj.read_video(config.VIDEO_PATH)
+    vtj.read_video()
     # rte.edge()
