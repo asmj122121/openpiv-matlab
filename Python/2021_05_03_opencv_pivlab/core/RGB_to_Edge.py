@@ -38,24 +38,13 @@ import config as config
 
 
 
-def run():
-    # read_video(config.VIDEO_PATH)
-    edge()
-
-def read_video(imgname):
-    cap = cv2.VideoCapture(imgname)
-    counter = 0
-    _, frame = cap.read()
-    while(type(frame) is np.ndarray):
-        counter += 1
-        print("%d"%(counter))
-        cv2.imwrite(path_input_data+"/origin_%d.jpg"%(counter), frame)
-        _, frame = cap.read()
-    cap.release()
 
 def edge():
     cap_1 = cv2.imread(path_input_data+"/origin_1.jpg",cv2.IMREAD_COLOR)
     cap_2 = cv2.imread(path_input_data+"/origin_2.jpg",cv2.IMREAD_COLOR)
+    cap_list = [cap_1,cap_2]
+    cap_1 = cv2.imread(path_input_data+"/origin_stop.jpg",cv2.IMREAD_COLOR)
+    cap_2 = cv2.imread(path_input_data+"/origin_stop.jpg",cv2.IMREAD_COLOR)
     cap_list = [cap_1,cap_2]
     counter = 0
     for c in cap_list:
@@ -71,18 +60,9 @@ def edge():
         # blur_edges = cv2.Canny(blur_gray,20,30)
         # cv2.imshow('blur_Edges',blur_edges)
         # cv2.imwrite(path_output_data+"/blur_edges_%d.jpg"%(counter), blur_edges)
-        cv2.imwrite(path_output_data+"/160mask_%d.jpg"%(counter), mask)
-
-
-    
-
-
-
-
-
-
+        cv2.imwrite(path_output_data+"/stopmask_%d.jpg"%(counter), mask)
 
 if __name__ == '__main__':
-    run()
+    edge()
     cv2.destroyAllWindows()
     # cap.release()

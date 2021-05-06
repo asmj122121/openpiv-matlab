@@ -1,9 +1,9 @@
 #-*- coding: utf-8 -*-
 u'''
         Author          : 蔡易展
-        Date            : 2021/04/12
+        Date            : 2021/05/06
         Version         : 0.0.0.1
-        Description     : web crawler
+        Description     : Hsu_project
 
         version         : 0.0.0.1
 '''
@@ -11,7 +11,7 @@ u'''
 # standard module
 import os
 import sys
-CWD = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
+CWD = os.path.dirname(os.path.dirname(__file__))
 path_core = os.path.join(CWD, 'core')
 path_ui = os.path.join(CWD, 'ui')
 path_settings = os.path.join(CWD, 'settings\\default')
@@ -30,15 +30,18 @@ for p in p_list:
         sys.path.insert(0, p)
 
 # 3rd module
+import cv2
 
 # local module
+import config as config
 
-VERSION = '0.0.0.1'
-
-#_____ui_____
-MAIN_UI_WIDTH  = 500
-MAIN_UI_HEIGHT = 160
-
-#_____RGB_to_Edge_____
-VIDEO_PATH = path_input_data+"/20210503_1.mp4"
-# VIDEO_PATH = path_input_data+"/20210504_1.mp4"
+def read_video(imgname):
+    cap = cv2.VideoCapture(imgname)
+    counter = 0
+    _, frame = cap.read()
+    while(type(frame) is np.ndarray):
+        counter += 1
+        print("%d"%(counter))
+        cv2.imwrite(path_input_data+"/origin_%d.jpg"%(counter), frame)
+        _, frame = cap.read()
+    cap.release()

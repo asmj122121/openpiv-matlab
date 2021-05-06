@@ -1,9 +1,9 @@
 #-*- coding: utf-8 -*-
 u'''
         Author          : 蔡易展
-        Date            : 2021/04/12
+        Date            : 2021/05/06
         Version         : 0.0.0.1
-        Description     : web crawler
+        Description     : Hsu_project
 
         version         : 0.0.0.1
 '''
@@ -25,12 +25,15 @@ p_list = [
 for p in p_list:
     if p not in sys.path:
         sys.path.insert(0, p)
-
+print(path_core)
 # 3rd module
 
 # local module
-
+import video_to_jpg as vtj
+import RGB_to_Edge as rte
+import config
 
 
 if __name__ == '__main__':
-    print("hello world")
+    vtj.read_video(config.VIDEO_PATH)
+    # rte.edge()
